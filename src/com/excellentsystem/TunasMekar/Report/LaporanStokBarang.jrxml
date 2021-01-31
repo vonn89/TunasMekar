@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="853a7fcb-4233-428d-8746-9ec5dc291c41">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="columnHeader" mode="Opaque" forecolor="#FFFFFF" backcolor="#404040">
+		<box leftPadding="5" rightPadding="5">
+			<leftPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="groupHeader1" mode="Opaque" backcolor="#FFCC99">
+		<box leftPadding="5" rightPadding="5"/>
+	</style>
+	<style name="groupHeader2" mode="Opaque" backcolor="#99FFCC">
+		<box leftPadding="5" rightPadding="5"/>
+	</style>
+	<style name="detail" mode="Opaque">
+		<box leftPadding="5" rightPadding="5"/>
+	</style>
+	<style name="detailEven" mode="Opaque" backcolor="#EDEDED">
+		<box leftPadding="5" rightPadding="5"/>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tanggal" class="java.lang.String">
+		<fieldDescription><![CDATA[tanggal]]></fieldDescription>
+	</field>
+	<field name="stokMasuk" class="java.lang.Double">
+		<fieldDescription><![CDATA[stokMasuk]]></fieldDescription>
+	</field>
+	<field name="stokAwal" class="java.lang.Double">
+		<fieldDescription><![CDATA[stokAwal]]></fieldDescription>
+	</field>
+	<field name="stokKeluar" class="java.lang.Double">
+		<fieldDescription><![CDATA[stokKeluar]]></fieldDescription>
+	</field>
+	<field name="stokAkhir" class="java.lang.Double">
+		<fieldDescription><![CDATA[stokAkhir]]></fieldDescription>
+	</field>
+	<field name="kodeBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeBarang]]></fieldDescription>
+	</field>
+	<field name="namaBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[barang.namaBarang]]></fieldDescription>
+	</field>
+	<field name="kodeKategori" class="java.lang.String">
+		<fieldDescription><![CDATA[barang.kodeKategori]]></fieldDescription>
+	</field>
+	<variable name="totalKategoriStokAwal" class="java.lang.Double" resetType="Group" resetGroup="kategori" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokAwal}]]></variableExpression>
+	</variable>
+	<variable name="totalKategoriStokMasuk" class="java.lang.Double" resetType="Group" resetGroup="kategori" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokMasuk}]]></variableExpression>
+	</variable>
+	<variable name="totalKategoriStokKeluar" class="java.lang.Double" resetType="Group" resetGroup="kategori" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokKeluar}]]></variableExpression>
+	</variable>
+	<variable name="totalKategoriStokAkhir" class="java.lang.Double" resetType="Group" resetGroup="kategori" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokAkhir}]]></variableExpression>
+	</variable>
+	<variable name="totalStokAwal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokAwal}]]></variableExpression>
+	</variable>
+	<variable name="totalStokMasuk" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokMasuk}]]></variableExpression>
+	</variable>
+	<variable name="totalStokKeluar" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokKeluar}]]></variableExpression>
+	</variable>
+	<variable name="totalStokAkhir" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{stokAkhir}]]></variableExpression>
+	</variable>
+	<group name="kategori">
+		<groupExpression><![CDATA[$F{kodeKategori}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement style="groupHeader2" x="0" y="0" width="555" height="20" backcolor="#99FFCC" uuid="78148e76-0102-4de7-b49f-19db85cd1501"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kodeKategori}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="26">
+				<textField>
+					<reportElement style="groupHeader2" x="0" y="0" width="235" height="20" uuid="c7b0c2bc-e8ee-4f7b-9a1c-e0cb188fec37"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total "+$F{kodeKategori}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement style="groupHeader2" x="235" y="0" width="80" height="20" uuid="ed91dba1-5cc1-4408-beb4-27413d341fc1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalKategoriStokAwal}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement style="groupHeader2" x="315" y="0" width="80" height="20" uuid="5ba1ea45-6801-4551-a859-4c7fce10314e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalKategoriStokMasuk}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement style="groupHeader2" x="395" y="0" width="80" height="20" uuid="c1d9aa2c-c4cd-48f7-948e-ba0fb28bbc93"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalKategoriStokKeluar}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement style="groupHeader2" x="475" y="0" width="80" height="20" uuid="5417cd04-4061-4838-a131-cfd0cd855e17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalKategoriStokAkhir}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="40" uuid="454426b3-6aa8-4951-a83b-846bf1377944"/>
+				<textElement>
+					<font fontName="Serif" size="24"/>
+				</textElement>
+				<text><![CDATA[Laporan Stok Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="30" forecolor="#006666" uuid="e25f7739-d01a-4399-8cb2-feef2c0b9d01"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="16" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Toko Tunas Mekar]]></text>
+			</staticText>
+			<textField pattern="dd MMM yyyy">
+				<reportElement x="60" y="30" width="495" height="20" uuid="26123f73-bc79-4833-9771-4c2fc2fab0a9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").parse($F{tanggal})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="50" height="20" uuid="78cff90d-45f8-4471-84b4-462dc0d1d08a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="30" width="10" height="20" uuid="dc403f68-aac8-4330-bf61-f7017aa00f69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement style="columnHeader" x="0" y="0" width="80" height="30" uuid="60902776-db39-4975-8fa4-48c4a6ad6b73"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="columnHeader" x="80" y="0" width="155" height="30" uuid="b0530906-8f7b-434d-976a-43b98a1341b2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="columnHeader" x="235" y="0" width="80" height="30" uuid="7654b082-c5dc-4fc3-9b97-f9c728732fad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok Awal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="columnHeader" x="315" y="0" width="80" height="30" uuid="2873bb4b-37ec-473c-b4f7-fcbc44a0e285"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok Masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="columnHeader" x="475" y="0" width="80" height="30" uuid="0f8235e5-0037-4faa-82e8-122fea60ad9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok Akhir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="columnHeader" x="395" y="0" width="80" height="30" uuid="53856485-751c-40ec-a9d1-7acb0f9e6f0c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok Keluar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{COLUMN_COUNT}%2==0]]></printWhenExpression>
+			<textField>
+				<reportElement style="detail" x="0" y="0" width="80" height="20" uuid="daa68106-42b4-483d-b6af-ddf2dab4a0e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeBarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="detail" x="80" y="0" width="155" height="20" uuid="44023417-0678-4945-8c9a-8311cd79f050"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaBarang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detail" x="235" y="0" width="80" height="20" uuid="109a3374-46b5-4797-ba86-eadabde68498"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokAwal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detail" x="315" y="0" width="80" height="20" uuid="37b7b14f-ec28-409f-82d5-7e1d00549eeb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokMasuk}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detail" x="395" y="0" width="80" height="20" uuid="13f144ec-30d9-4d35-9ea9-39ab622547d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokKeluar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detail" x="475" y="0" width="80" height="20" uuid="ccc141c7-29dc-44c5-b9ce-9d272b28c0a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokAkhir}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$V{COLUMN_COUNT}%2!=0]]></printWhenExpression>
+			<staticText>
+				<reportElement style="detailEven" mode="Opaque" x="80" y="0" width="115" height="20" uuid="683f2b33-e582-47fa-95c1-bdf28823e36c"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement style="detailEven" x="315" y="0" width="80" height="20" uuid="07d64e77-5907-4c18-8349-e4ed36ed49e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokMasuk}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detailEven" x="395" y="0" width="80" height="20" uuid="f1e5492f-5ff7-4c72-b468-80573e0a2fb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokKeluar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="detailEven" x="80" y="0" width="155" height="20" uuid="a95443bb-e5bb-4a36-b0e0-3f9cd9e8e017"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaBarang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detailEven" x="235" y="0" width="80" height="20" uuid="c97cebf3-252d-4638-bd6e-9553dddab22f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokAwal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="detailEven" x="475" y="0" width="80" height="20" uuid="28c19915-43f9-4109-8d59-d0500fd825e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stokAkhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="detailEven" x="0" y="0" width="80" height="20" uuid="c1bb74a2-152d-487f-9feb-4dd4d1363f16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeBarang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="36" y="0" width="34" height="20" uuid="d40879fe-b4f1-4090-a7e8-6fcb0b14096e"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="335" y="0" width="100" height="20" uuid="110b8f6a-5e14-426b-b2f7-904b75704001"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Print Date :  ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy HH:mm">
+				<reportElement x="435" y="0" width="119" height="20" uuid="c947769d-5832-4ea4-90e7-3ba30246d8fe"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="36" height="20" uuid="e5b333d5-4e66-467a-871e-db1613b318c6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20">
+			<textField pattern="#,##0">
+				<reportElement style="columnHeader" x="395" y="0" width="80" height="20" uuid="4e8fb383-c708-431e-a04d-69ecef952705"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalStokKeluar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="columnHeader" x="235" y="0" width="80" height="20" uuid="bb0dff86-58a3-461d-8d19-e0117907e4bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalStokAwal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="columnHeader" x="315" y="0" width="80" height="20" uuid="d0361196-a135-45eb-81c8-918922f81dd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalStokMasuk}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="columnHeader" x="475" y="0" width="80" height="20" uuid="5d88e632-e2cd-409a-b689-f70ce5296c7c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalStokAkhir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="columnHeader" x="0" y="0" width="235" height="20" uuid="7b9cd3ee-d473-41ee-b66b-2f551c775d79"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

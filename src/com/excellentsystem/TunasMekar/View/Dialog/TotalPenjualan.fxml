@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: transparent;" stylesheets="@../../Resource/MyTheme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excellentsystem.TunasMekar.View.Dialog.TotalPenjualanController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane onMouseClicked="#closeDialog" opacity="0.69" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" />
+            <GridPane hgap="5.0" maxHeight="320.0" maxWidth="1.7976931348623157E308" styleClass="dialog" vgap="5.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: seccolor5;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-background-color: seccolor3; -fx-text-fill: seccolor6;" text="Total Penjualan" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="totalPenjualanlabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-font-size: 15; -fx-font-weight: bold;" text="Rp 0,-" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox layoutX="35.0" layoutY="35.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: seccolor5;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-background-color: seccolor3; -fx-text-fill: seccolor6;" text="Total Diskon" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="totalDiskonlabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-font-size: 15; -fx-font-weight: bold;" text="Rp 0,-" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="35.0" layoutY="80.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: seccolor5;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-background-color: seccolor3; -fx-text-fill: seccolor6;" text="Grandtotal" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="grandtotallabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-font-size: 15; -fx-font-weight: bold;" text="Rp 0,-" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="1.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                     <children>
+                        <Button fx:id="saveButton" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 0;" styleClass="button2" text="Simpan (ENTER)" HBox.hgrow="ALWAYS" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeDialog" prefHeight="40.0" style="-fx-background-radius: 0;" styleClass="button2" text="Batal (ESC)" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <HBox layoutX="35.0" layoutY="185.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: seccolor5;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#ubahPembayaran" prefHeight="40.0" prefWidth="160.0" text="Pembayaran ( F12 )" />
+                        <Label fx:id="totalPembayaranLabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-font-size: 15; -fx-font-weight: bold;" text="Rp 0,-" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#cariPelanggan" prefHeight="40.0" prefWidth="160.0" text="Pelanggan ( F8 )" />
+                        <Label fx:id="namaPelangganLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-background-color: seccolor5; -fx-font-size: 16; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="kategoriLabel" style="-fx-font-family: Serif; -fx-font-size: 24;" text="Penjualan" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+               <padding>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
